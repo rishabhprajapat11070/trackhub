@@ -1,5 +1,6 @@
 import Appliction from "../compnents/appliction.jsx";
 import Brands from "../compnents/brands.jsx";
+import About from "../compnents/about.jsx";
 import {
   HEAD, MUTED, INK, INK_BORDER, PAPER, SURFACE, HAIRLINE,
   BTN_PRIMARY, BTN_GHOST,
@@ -103,9 +104,10 @@ function RouteMap() {
 
 export default function Home() {
   return (
-    <div className={`${PAPER} font-sans text-[17px] leading-relaxed ${INK}`}>
-      <div className="mx-auto max-w-[1120px] px-6">
+    <div id='home' className={`${PAPER} font-sans text-[17px] leading-relaxed ${INK}`}>
+       <div className="mx-auto max-w-[1120px] px-6">
         {/* Hero */}
+        <br /><br />
         <div className="grid items-center gap-12 pb-16 pt-6 md:grid-cols-[1fr_1.15fr] md:pb-[72px] md:pt-12">
           <div>
             <h1 className={`${HEAD} text-[clamp(40px,6vw,68px)] font-extrabold leading-[1.05]`}>
@@ -116,7 +118,7 @@ export default function Home() {
               you can stop guessing and start planning.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href="#pricing" className={BTN_PRIMARY}>Start free for 14 days</a>
+              {/* <a href="#pricing" className={BTN_PRIMARY}>Start free for 14 days</a> */}
               <a href="#features" className={BTN_GHOST}>See how it works</a>
             </div>
           </div>
@@ -155,6 +157,9 @@ export default function Home() {
         <Appliction />
         {/* Brands */}
         <Brands/>
+        {/* About */}
+        <About/>
+
       </div>
     </div>
   );

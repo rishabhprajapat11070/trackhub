@@ -27,6 +27,8 @@ const SERVICES = [
   ["Sea freight", "Sea freight built around your process, after we take the time to learn how you work."],
 ];
 
+// Card width adapts to the number of brands
+
 const BRANDS = [
   {
     name: "3PL Track Hub",
@@ -44,7 +46,26 @@ const BRANDS = [
     primary: { label: "Visit website", url: "https://your-tech-hub-link.com" },
     secondary: { label: "Contact us", url: "https://your-tech-hub-link.com/contact" },
   },
+  {
+    name: "3PL Cargo Hub",
+    logo:trachub,
+    mark: "TE",
+    text: "3PL CargoHub is your trusted logistics partner for seamless domestic and international shipping solutions. We make shipping simple, fast, and reliable with smart tracking, efficient delivery management, and dedicated customer support.",
+    primary: { label: "Visit website", url: "https://your-tech-hub-link.com" },
+    secondary: { label: "Contact us", url: "https://your-tech-hub-link.com/contact" },
+  },
 ];
+
+const n = BRANDS.length;
+const cardWidth =
+  n === 1
+    ? "md:w-[560px]"
+    : n === 2 || n === 4
+    ? "md:w-[calc(50%-12px)]"
+    : "md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]";
+
+const nameList = (names) =>
+  names.length < 2 ? names[0] : `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
 
 export default function Brands() {
   return (
@@ -95,45 +116,52 @@ export default function Brands() {
       <div aria-hidden="true" className="mx-auto h-8 w-0.5 bg-[#10231A] dark:bg-[#3C5C4B]" />
 
       {/* Brands */}
-      <h3 className={`${HEAD} text-center text-[clamp(24px,3vw,32px)] font-bold`}>Our brands</h3>
-      <div className={`mt-8 grid gap-px overflow-hidden rounded-[18px] border-2 md:grid-cols-2 ${HAIRLINE} ${INK_BORDER}`}>
-        {BRANDS.map((b) => (
-          <article key={b.name} className={`${SURFACE} flex flex-col p-[30px]`}>
-            <div className="flex items-center gap-4">
-            {b.logo ? (
-                <img
-                  src={b.logo}
-                  alt={`${b.name} logo`}
-                  className={`h-14 w-14 rounded-[14px] border-2 bg-white object-contain p-1.5 ${INK_BORDER}`}
-                />
-              ) : (
-                <span
-                  aria-hidden="true"
-                  className={`${HEAD} grid h-14 w-14 place-items-center rounded-[14px] border-2 bg-[#FFC21A] text-[20px] font-extrabold !text-[#10231A] ${INK_BORDER}`}
-                >
-                  {b.mark}
-                </span>
-              )}
-              <h4 className={`${HEAD} text-[24px] font-bold leading-tight`}>{b.name}</h4>
-            </div>
 
-            <p className={`${MUTED} mt-4 flex-1 text-[16px]`}>{b.text}</p>
+        <h3 className={`${HEAD} text-center text-[clamp(24px,3vw,32px)] font-bold`}>Our brands</h3>
+        <div className="mt-8 flex flex-wrap justify-center gap-6">
+          {BRANDS.map((b) => (
+            <article
+              key={b.name}
+              className={`flex w-full flex-col rounded-[18px] border-2 p-[30px] transition hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${SURFACE} ${INK_BORDER} ${cardWidth}`}
+            >
+              <div className="flex items-center gap-4">
+                {b.logo ? (
+                  <img
+                    src={b.logo}
+                    alt={`${b.name} logo`}
+                    className={`h-14 w-14 shrink-0 rounded-[14px] border-2 bg-white object-contain p-1.5 ${INK_BORDER}`}
+                  />
+                ) : (
+                  <span
+                    aria-hidden="true"
+                    className={`${HEAD} grid h-14 w-14 shrink-0 place-items-center rounded-[14px] border-2 bg-[#FFC21A] text-[20px] font-extrabold !text-[#10231A] ${INK_BORDER}`}
+                  >
+                    {b.mark}
+                  </span>
+                )}
+                <h4 className={`${HEAD} text-[24px] font-bold leading-tight`}>{b.name}</h4>
+              </div>
 
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a href={b.primary.url} target="_blank" rel="noopener noreferrer" className={BTN_PRIMARY}>
-                {b.primary.label}
-              </a>
-              <a href={b.secondary.url} target="_blank" rel="noopener noreferrer" className={BTN_GHOST}>
-                {b.secondary.label}
-              </a>
-            </div>
-          </article>
-        ))}
-      </div>
+              <p className={`${MUTED} mt-4 flex-1 text-[16px]`}>{b.text}</p>
 
-      <p className={`${MUTED} mt-6 text-center text-[14px]`}>
-        3PL Track Hub and 3PL Tech Hub are brands of {COMPANY.name}
-      </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a href={b.primary.url} target="_blank" rel="noopener noreferrer" className={BTN_PRIMARY}>
+                  {b.primary.label}
+                </a>
+                {b.secondary && (
+                  <a href={b.secondary.url} target="_blank" rel="noopener noreferrer" className={BTN_GHOST}>
+                    {b.secondary.label}
+                  </a>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <p className={`${MUTED} mt-8 text-center text-[14px]`}>
+          {nameList(BRANDS.map((b) => b.name))} {BRANDS.length === 1 ? "is a brand" : "are brands"} of {COMPANY.name}
+        </p> 
+
     </section>
   );
 }

@@ -7,11 +7,13 @@ import Home from './pages/home.jsx';
 
 const App = () => {
   return (
+    <>
     <div>
-      <Navbar /> 
+           <Navbar />
       <Home />
       <Footer />
     </div>
+    </>
   );
 };
 
