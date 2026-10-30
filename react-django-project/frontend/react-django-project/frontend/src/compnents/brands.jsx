@@ -1,5 +1,6 @@
 import logo from "../assets/logo1.png";
 import trachub from "../assets/logo.png";
+import cargohub from "../assets/cargohub.png";
 import {
   HEAD, MUTED, INK, ACCENT, SURFACE, SURFACE_SOFT, HAIRLINE, INK_BORDER, BTN_PRIMARY, BTN_GHOST,
 } from "./theme.js";
@@ -32,7 +33,7 @@ const SERVICES = [
 const BRANDS = [
   {
     name: "3PL Track Hub",
-    logo:"https://www.3pltechhub.com/media-storage/logo/69e3430e4147f---3pl-logo-png.png",
+    logo:trachub,
     mark: "TH",
     text: "One app to follow every GPS tracker. See live location, trip history, geofence alerts and engine control from your phone or the web.",
     primary: { label: "Get it on Google Play", url: "https://play.google.com/store/apps/details?id=com.track.threepl" },
@@ -40,7 +41,7 @@ const BRANDS = [
   },
   {
     name: "3PL Tech Hub",
-    logo:trachub,
+    logo:"https://www.3pltechhub.com/media-storage/logo/69e3430e4147f---3pl-logo-png.png",
     mark: "TE",
     text: "Technology solutions and software from the same team. Replace this line with a short description of what Tech Hub offers.",
     primary: { label: "Visit website", url: "https://your-tech-hub-link.com" },
@@ -48,10 +49,10 @@ const BRANDS = [
   },
   {
     name: "3PL Cargo Hub",
-    logo:trachub,
+    logo:cargohub,
     mark: "TE",
     text: "3PL CargoHub is your trusted logistics partner for seamless domestic and international shipping solutions. We make shipping simple, fast, and reliable with smart tracking, efficient delivery management, and dedicated customer support.",
-    primary: { label: "Visit website", url: "https://your-tech-hub-link.com" },
+    primary: { label: "Visit website", url: "https://www.3plcargohub.com/" },
     secondary: { label: "Contact us", url: "https://your-tech-hub-link.com/contact" },
   },
 ];
@@ -161,6 +162,9 @@ export default function Brands() {
         <p className={`${MUTED} mt-8 text-center text-[14px]`}>
           {nameList(BRANDS.map((b) => b.name))} {BRANDS.length === 1 ? "is a brand" : "are brands"} of {COMPANY.name}
         </p> 
+          <br />
+          <br />
+          <hr className={`border-0 border-t-2 ${INK_BORDER}`} />
 
     </section>
   );

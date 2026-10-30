@@ -1,6 +1,9 @@
 import appshot1 from '../assets/appshot1.jpeg';
 import appshot2 from '../assets/appshot2.jpeg';
 import appshot3 from '../assets/appshot3.jpeg';
+import trackhub from "../assets/trackhub.png";
+
+
 
 
 
@@ -9,8 +12,7 @@ import {
 } from "./theme.js";
 
 const PLAY_URL = "https://play.google.com/store/apps/details?id=com.track.threepl";
-const ICON =
-  "https://play-lh.googleusercontent.com/U8TU8miuXXURmweRI6oWQHTpdAcuZkCcYMTYTgL9sQMVZ1b-lD-EzoWrd1PnY1q7ZFYcgB6c6Tx-sPqa1WB47WA=w240-h480";
+const ICON = trackhub 
 const SHOTS = [appshot1,appshot2,appshot3];
 
 const APP_FEATURES = [
@@ -57,7 +59,7 @@ export default function Appliction() {
         </div>
 
         {/* App card */}
-        <div className="relative mx-auto w-full max-w-[380px]">
+        <div className="relative mx-auto w-full max-w-[370px]">
           <div className={`absolute -inset-3 -z-10 rotate-2 rounded-[26px] ${HAIRLINE}`} />
           <div className={`rounded-[22px] border-2 p-6 ${SURFACE} ${INK_BORDER}`}>
             <div className="flex items-center gap-4">
@@ -66,7 +68,7 @@ export default function Appliction() {
                 alt="3PL Track Hub app icon"
                 width={72}
                 height={72}
-                className={`h-[72px] w-[72px] rounded-[18px] border object-cover ${INK_BORDER}`}
+                className={`h-[72px] w-[72px]  rounded-[18px] border bg-white object-contain ${INK_BORDER}`}
               />
               <div>
                 <h3 className={`${HEAD} text-[22px] font-bold leading-tight`}>3PL Track Hub</h3>

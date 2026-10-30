@@ -6,19 +6,11 @@ const columns = [
     links: [
       { label: "Home", href: "#home" },
       { label: "Features", href: "#features" },
-      { label: "Applications", href: "#applications" },
+      { label: "Applications", href: "#app" },
       { label: "About", href: "#about" },
     ],
   },
-  {
-    title: "Solutions",
-    links: [
-      { label: "Vehicle tracking", href: "#applications" },
-      { label: "Fleet management", href: "#applications" },
-      { label: "Asset tracking", href: "#applications" },
-      { label: "Personal safety", href: "#applications" },
-    ],
-  },
+
   {
     title: "Support",
     links: [
@@ -74,17 +66,17 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-gray-900">Get in touch</h3>
             <ul className="mt-4 space-y-3 text-sm text-gray-600">
               <li>
-                <a href="mailto:support@yourcompany.com" className="hover:text-gray-900">
-                  support@yourcompany.com
+                <a href="mailto:Info@3plcargohub.com.com" className="hover:text-gray-900">
+                  Info@3plcargohub.com
                 </a>
               </li>
               <li>
                 <a href="tel:+910000000000" className="transition-colors hover:text-gray-900">
-                  +91 00000 00000
+                  +91 97700 21050
                 </a>
               </li>
               <li className="leading-relaxed">
-                Your street address,
+                3 PL MANAGEMENT INDIA PRIVATE LIMITED BSNL, 18-SOUTH TUKOGANJ, LG-31, Trade Center, Unnamed Road, Radio Colony, Indore, Indore, Madhya Pradesh, 452001
                 <br />
                 Indore, Madhya Pradesh, India
               </li>
